@@ -25,9 +25,8 @@ public class Philosopher
         while (running) {
             try {
                 think();
-                //try {
-                if( myLeftStick.take() ) {
-                    if ( myRightStick.take() ) {
+                if( myLeftStick.take(DELAY) ) {
+                    if ( myRightStick.take(DELAY) ) {
                         eat();
                         myLeftStick.release();
                         myRightStick.release();
@@ -35,9 +34,6 @@ public class Philosopher
                         myLeftStick.release();
                     }
                 }
-
-
-                System.out.println("Thinking again");
 
             } catch (InterruptedException ex) {
                 Logger.getLogger("Table").log(Level.SEVERE, "{0} Interrupted", this.getName());
